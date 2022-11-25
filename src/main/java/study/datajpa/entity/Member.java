@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Member {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "member_id")
     private Long id;
 
@@ -33,6 +33,11 @@ public class Member {
         if (team != null) {
             changeTeam(team);
         }
+    }
+
+    public Member(String username, int age) {
+        this.username = username;
+        this.age = age;
     }
 
     public void changeTeam(Team team) {
